@@ -1,0 +1,169 @@
+{% extends "index.html" %}
+{% load static %}
+<!DOCTYPE html>
+<html class="loading" lang="en" data-textdirection="ltr">
+  <head>    
+
+    {% block title %}  
+    <title>Pestaña - Tabla </title>   
+	{% endblock %}
+	
+  </head>
+  
+  <body class="vertical-layout vertical-menu 2-columns   menu-expanded fixed-navbar" data-open="click" data-menu="vertical-menu" data-color="bg-gradient-x-purple-blue" data-col="2-columns">
+	{% block content %}  
+	<!-- MENU-->
+    <div class="main-menu menu-fixed menu-light menu-accordion    menu-shadow " data-scroll-to-active="true" data-img="{% static 'theme-assets/images/backgrounds/04.jpg' %}">
+	<div class="navbar-header">
+		<ul class="nav navbar-nav flex-row">      
+			<li class="nav-item mr-auto"><a class="navbar-brand" href="index.html"><img class="brand-logo" alt="Chameleon admin logo" src="{% static 'theme-assets/images/logo/rmgm.png' %}"/> 
+				<h3 class="brand-text">Software RGMG</h3></a></li>
+			<li class="nav-item d-md-none"><a class="nav-link close-navbar"><i class="ft-x"></i></a></li>
+		</ul>
+		</div>
+      <div class="main-menu-content">
+        <ul class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation">
+			<li class=" nav-item"><a href="index.html"><i class="ft-home"></i><span class="menu-title" data-i18n="">Menu Principal</span></a>
+            </li>
+            <li class="active"><a href="tables.html"><i class="ft-credit-card"></i><span class="menu-title" data-i18n="">Tabla</span></a>
+            </li>
+            <li class=" nav-item"><a href="charts.html"><i class="la la-area-chart"></i><span class="menu-title" data-i18n="">Graficas</span></a>
+            </li>
+            <li class=" nav-item"><a href="form-elements.html"><i class="ft-layout"></i><span class="menu-title" data-i18n="">Analisis Estadistico</span></a>
+            </li>
+            <li class=" nav-item"><a href="buttons.html"><i class="ft-box"></i><span class="menu-title" data-i18n="">Modelar Vector</span></a>
+            </li> 
+            <li class=" nav-item"><a href="typography.html"><i class="la la-bar-chart"></i><span class="menu-title" data-i18n="">Histograma</span></a>
+            </li>   
+		  
+        </ul>
+      </div>
+      <div class="navigation-background"></div>
+	</div>
+	
+	<!-- MODULO-->
+    <div class="app-content content">
+      <div class="content-wrapper">
+        <div class="content-wrapper-before"></div>
+        <div class="content-header row">
+          <div class="content-header-left col-md-4 col-12 mb-2">
+            <h3 class="content-header-title">Tabla</h3>
+          </div>
+          <div class="content-header-right col-md-8 col-12">
+            <div class="breadcrumbs-top float-md-right">
+              <div class="breadcrumb-wrapper mr-1">
+                <ol class="breadcrumb">
+                  <li class="breadcrumb-item"><a href="index.html">Menu</a>
+                  </li>
+                  <li class="breadcrumb-item active">Tabla
+                  </li>
+                </ol>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="content-body">
+
+<!-- Tabla -->
+<div class="row">
+	<div class="col-12">
+		<div class="card">
+			<div class="card-header">			
+		
+					<h4 class="card-title">Menu Tabla</h4> 
+			
+				<a class="heading-elements-toggle"><i class="la la-ellipsis-v font-medium-3"></i></a>
+				<div class="heading-elements">
+					<ul class="list-inline mb-0">
+						<li><a data-action="collapse"><i class="ft-minus"></i></a></li>
+						<li><a data-action="reload"><i class="ft-rotate-cw"></i></a></li>
+						<li><a data-action="expand"><i class="ft-maximize"></i></a></li>
+						<li><a data-action="close"><i class="ft-x"></i></a></li>
+					</ul>
+				</div>
+			</div>
+			<div class="card-content collapse show">
+				<div class="card-body">
+					<div class="table-responsive">				
+						<!--
+							<p align="center">
+							<a href="charts.html" data-action="reload">  <button type="button" class="btn btn-dark btn-min-width mr-1 mb-1">Ver Graficas</button></a>
+						-->
+						<h4 class="card-title" align="center"><font size="5" >Vectores Actuales</font></h4> 
+								
+						<table class="table">
+							<thead class="thead-dark">
+							<tr>
+								
+								{% for columna in Tabla|slice:":1" %}
+								{% if columna.tiempo != -10 %}
+								<th>Tiempo</th>	
+								{% endif %}
+								{% if columna.columnaA != -10 %}
+								<th>Vector A</th>	
+								{% endif %}
+								{% if columna.columnaB != -10 %}
+								<th>Vector B</th>	
+								{% endif %}
+								{% if columna.columnaC != -10 %}
+								<th>Vector C</th>	
+								{% endif %}
+								{% if columna.columnaD != -10 %}
+								<th>Vector D</th>	
+								{% endif %}
+								{% if columna.columnaE != -10 %}
+								<th>Vector E</th>	
+								{% endif %}
+								{% if columna.columnaF != -10 %}
+								<th>Vector F</th>	
+								{% endif %}
+								{% endfor %}
+							{% for columna in Tabla %}       
+								<tr>
+									{% if columna.tiempo != -10 %}
+									<td>{{ columna.tiempo }}</td>	
+									{% endif %}
+									{% if columna.columnaA != -10 %}
+									<td>{{ columna.columnaA }}</td>	
+									{% endif %}	
+									{% if columna.columnaB != -10 %}
+									<td>{{ columna.columnaB }}</td>	
+									{% endif %}	
+									{% if columna.columnaC != -10 %}
+									<td>{{ columna.columnaC }}</td>	
+									{% endif %}	
+									{% if columna.columnaD != -10 %}
+									<td>{{ columna.columnaD }}</td>	
+									{% endif %}	
+									{% if columna.columnaE != -10 %}
+									<td>{{ columna.columnaE }}</td>	
+									{% endif %}	
+									{% if columna.columnaF != -10 %}
+									<td>{{ columna.columnaF }}</td>	
+									{% endif %}			
+								</tr>
+									  
+							{% endfor %}
+						
+						</table>				
+								
+	
+					</div>
+				</div>
+				
+			</div>
+			
+		</div>
+	</div>
+</div>
+
+<!-- Table head options end -->
+
+        </div>
+      </div>
+	</div>
+	
+    {% endblock %}
+    
+  </body>
+</html>
